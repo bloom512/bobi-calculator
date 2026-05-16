@@ -58,15 +58,15 @@ export default function CalculatorPage() {
           </Link>
         </div>
 
-        <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-soft p-6 space-y-6">
-          <div className="relative">
-            <ActivitySelector
-              activities={activities}
-              selectedActivity={selectedActivity}
-              onSelect={handleActivityChange}
-            />
-          </div>
+        <div className="mb-4">
+          <ActivitySelector
+            activities={activities}
+            selectedActivity={selectedActivity}
+            onSelect={handleActivityChange}
+          />
+        </div>
 
+        <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-soft p-6 space-y-6">
           <div className="space-y-4 sm:space-y-6">
             <div className="grid grid-cols-2 gap-2 sm:gap-3">
               <div className="flex flex-col items-center">
