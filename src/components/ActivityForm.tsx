@@ -84,7 +84,7 @@ export function ActivityForm({ activity, onSubmit, onCancel }: ActivityFormProps
           className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 font-mono ${
             errors.formula_c ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:border-primary-400'
           } focus:outline-none focus:ring-2`}
-          placeholder="例如: Aa-B+48"
+          placeholder="例如: A*a-B+48"
         />
         {errors.formula_c && <p className="mt-1 text-sm text-red-500">{errors.formula_c}</p>}
         <p className="mt-2 text-xs text-gray-400">支持变量: A, a, B, b | 运算符: + - * / | 支持括号</p>
@@ -99,7 +99,7 @@ export function ActivityForm({ activity, onSubmit, onCancel }: ActivityFormProps
           className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 font-mono ${
             errors.formula_d ? 'border-red-300 focus:ring-red-200' : 'border-gray-200 focus:border-primary-400'
           } focus:outline-none focus:ring-2`}
-          placeholder="例如: Bb-A-25"
+          placeholder="例如: B*b-A-25"
         />
         {errors.formula_d && <p className="mt-1 text-sm text-red-500">{errors.formula_d}</p>}
         <p className="mt-2 text-xs text-gray-400">支持变量: A, a, B, b | 运算符: + - * / | 支持括号</p>
