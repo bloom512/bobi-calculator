@@ -82,6 +82,7 @@ export default function AdminPage() {
             </Link>
             <h1 className="text-2xl font-bold text-gray-800">活动管理</h1>
           </div>
+{!showForm && (
           <button
             onClick={() => {
               setEditingActivity(null)
@@ -91,6 +92,7 @@ export default function AdminPage() {
           >
             新增活动
           </button>
+        )}
         </div>
 
         {message && (

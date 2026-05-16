@@ -17,15 +17,15 @@ export function ResultDisplay({ cResult, dResult, error }: ResultDisplayProps) {
           <p className="text-red-600 text-sm">{error}</p>
         </div>
       ) : (
-        <div className="bg-gray-100 rounded-2xl p-6 space-y-4">
+        <div className="bg-gray-50/80 backdrop-blur-sm rounded-2xl p-6 space-y-4 shadow-sm border border-gray-100">
           <div className="flex items-center justify-between">
               <span className="text-gray-600 font-medium">子非鱼获胜 (C)</span>
-              <span className="text-3xl font-bold text-primary-600 transition-all duration-300">{formatNumber(cResult)}</span>
+              <span key={cResult} className="text-3xl font-bold text-primary-600 animate-in fade-in duration-200">{formatNumber(cResult)}</span>
             </div>
-            <div className="h-px bg-gray-200" />
+            <div className="h-px bg-gray-200/50" />
             <div className="flex items-center justify-between">
               <span className="text-gray-600 font-medium">OP获胜 (D)</span>
-              <span className="text-3xl font-bold text-warning-500 transition-all duration-300">{formatNumber(dResult)}</span>
+              <span key={dResult} className="text-3xl font-bold text-warning-500 animate-in fade-in duration-200">{formatNumber(dResult)}</span>
             </div>
         </div>
       )}

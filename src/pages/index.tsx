@@ -74,16 +74,16 @@ export default function CalculatorPage() {
                 <div className="flex items-center bg-white rounded-xl shadow-sm overflow-hidden" style={{ width: '100%', maxWidth: '160px' }}>
                   <button
                     onClick={() => handleValueChange('A', Math.max(0, values.A - 1))}
-                    className="w-10 h-12 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 transition-all duration-150 text-xl font-bold text-gray-600 flex-shrink-0"
+                    className="w-10 h-12 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-100 text-xl font-bold text-gray-600 flex-shrink-0"
                   >
                     −
                   </button>
                   <input
                     type="number"
                     inputMode="numeric"
-                    value={values.A}
+                    value={values.A || ''}
                     onChange={(e) => handleValueChange('A', Math.max(0, parseInt(e.target.value) || 0))}
-                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white outline-none focus:ring-2 focus:ring-primary-200 rounded-lg transition-all"
+                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white border border-gray-200 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 rounded-lg transition-all"
                   />
                   <button
                     onClick={() => handleValueChange('A', values.A + 1)}
@@ -107,16 +107,16 @@ export default function CalculatorPage() {
                     type="number"
                     inputMode="decimal"
                     step="0.01"
-                    value={values.a}
+                    value={values.a || ''}
                     onChange={(e) => {
                       const val = parseFloat(e.target.value) || 0
                       handleValueChange('a', Math.max(0, Math.round(val * 100) / 100))
                     }}
-                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white outline-none"
+                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white border border-gray-200 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 rounded-lg transition-all"
                   />
                   <button
                     onClick={() => handleValueChange('a', Math.round((values.a + 0.01) * 100) / 100)}
-                    className="w-10 h-12 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 transition-all duration-150 text-xl font-bold text-gray-600 flex-shrink-0"
+                    className="w-10 h-12 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-100 text-xl font-bold text-gray-600 flex-shrink-0"
                   >
                     +
                   </button>
@@ -130,20 +130,20 @@ export default function CalculatorPage() {
                 <div className="flex items-center bg-white rounded-xl shadow-sm overflow-hidden" style={{ width: '100%', maxWidth: '160px' }}>
                   <button
                     onClick={() => handleValueChange('B', Math.max(0, values.B - 1))}
-                    className="w-10 h-12 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-150 text-xl font-bold text-gray-600 flex-shrink-0"
+                    className="w-10 h-12 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-100 text-xl font-bold text-gray-600 flex-shrink-0"
                   >
                     −
                   </button>
                   <input
                     type="number"
                     inputMode="numeric"
-                    value={values.B}
+                    value={values.B || ''}
                     onChange={(e) => handleValueChange('B', Math.max(0, parseInt(e.target.value) || 0))}
-                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white outline-none"
+                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white border border-gray-200 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 rounded-lg transition-all"
                   />
                   <button
                     onClick={() => handleValueChange('B', values.B + 1)}
-                    className="w-10 h-12 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 transition-all duration-150 text-xl font-bold text-gray-600 flex-shrink-0"
+                    className="w-10 h-12 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-100 text-xl font-bold text-gray-600 flex-shrink-0"
                   >
                     +
                   </button>
@@ -155,7 +155,7 @@ export default function CalculatorPage() {
                 <div className="flex items-center bg-white rounded-xl shadow-sm overflow-hidden" style={{ width: '100%', maxWidth: '160px' }}>
                   <button
                     onClick={() => handleValueChange('b', Math.max(0, Math.round((values.b - 0.01) * 100) / 100))}
-                    className="w-10 h-12 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 transition-all duration-150 text-xl font-bold text-gray-600 flex-shrink-0"
+                    className="w-10 h-12 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-100 text-xl font-bold text-gray-600 flex-shrink-0"
                   >
                     −
                   </button>
@@ -163,16 +163,16 @@ export default function CalculatorPage() {
                     type="number"
                     inputMode="decimal"
                     step="0.01"
-                    value={values.b}
+                    value={values.b || ''}
                     onChange={(e) => {
                       const val = parseFloat(e.target.value) || 0
                       handleValueChange('b', Math.max(0, Math.round(val * 100) / 100))
                     }}
-                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white outline-none focus:ring-2 focus:ring-primary-200 rounded-lg transition-all"
+                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white border border-gray-200 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 rounded-lg transition-all"
                   />
                   <button
                     onClick={() => handleValueChange('b', Math.round((values.b + 0.01) * 100) / 100)}
-                    className="w-10 h-12 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-150 text-xl font-bold text-gray-600 flex-shrink-0"
+                    className="w-10 h-12 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-100 text-xl font-bold text-gray-600 flex-shrink-0"
                   >
                     +
                   </button>
@@ -186,10 +186,6 @@ export default function CalculatorPage() {
             dResult={result.D}
             error={result.error}
           />
-        </div>
-
-        <div className="mt-6 text-center text-sm text-gray-400">
-          <p>数据实时计算，无需点击按钮</p>
         </div>
       </div>
     </div>
