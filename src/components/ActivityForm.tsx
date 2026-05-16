@@ -109,13 +109,13 @@ export function ActivityForm({ activity, onSubmit, onCancel }: ActivityFormProps
         <button
           type="button"
           onClick={onCancel}
-          className="flex-1 px-4 py-3 bg-gray-100 text-gray-700 rounded-xl font-medium hover:bg-gray-200 transition-colors duration-200"
+          className="flex-1 px-4 py-3 glass-sm text-gray-700 rounded-xl font-medium hover:shadow-hover active:scale-98 transition-all duration-200 shimmer-effect"
         >
           取消
         </button>
         <button
           type="submit"
-          className="flex-1 px-4 py-3 bg-primary-500 text-white rounded-xl font-medium hover:bg-primary-600 transition-colors duration-200"
+          className="flex-1 px-4 py-3 bg-primary-500 text-white rounded-xl font-medium hover:bg-primary-600 hover:shadow-lg active:scale-98 transition-all duration-200 shimmer-effect"
         >
           {activity ? '保存修改' : '创建活动'}
         </button>
