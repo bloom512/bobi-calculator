@@ -74,8 +74,8 @@ export default function AdminPage() {
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center space-x-3">
             <Link href="/">
-              <button className="w-10 h-10 flex items-center justify-center bg-white rounded-xl shadow-soft hover:shadow-hover transition-all duration-200">
-                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <button className="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-xl shadow-soft hover:shadow-hover transition-all duration-200 border border-gray-200">
+                <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
@@ -121,21 +121,21 @@ export default function AdminPage() {
             ) : (
               <div className="divide-y divide-gray-100">
                 {activities.map((activity) => (
-                  <div key={activity.id} className="p-4 hover:bg-gray-50 transition-colors duration-150">
+                  <div key={activity.id} className="p-4 hover:bg-gray-100 transition-colors duration-150">
                     <div className="flex items-start justify-between">
                       <div className="flex-1 min-w-0">
                         <h3 className="font-semibold text-gray-800">{activity.name}</h3>
-                        <div className="mt-1 text-sm text-gray-500 space-y-1">
-                          <p><span className="text-gray-400">C公式:</span> {activity.formula_c}</p>
-                          <p><span className="text-gray-400">D公式:</span> {activity.formula_d}</p>
-                        </div>
+                        <div className="mt-1 text-sm text-gray-600 space-y-1">
+                        <p><span className="text-gray-500">C公式:</span> {activity.formula_c}</p>
+                        <p><span className="text-gray-500">D公式:</span> {activity.formula_d}</p>
+                      </div>
                       </div>
                       <div className="flex space-x-2 ml-4">
                         <button
                           onClick={() => handleEdit(activity)}
-                          className="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors duration-200"
+                          className="w-10 h-10 flex items-center justify-center bg-gray-200 rounded-xl hover:bg-gray-300 transition-colors duration-200"
                         >
-                          <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                           </svg>
                         </button>
@@ -143,17 +143,17 @@ export default function AdminPage() {
                           <div className="flex space-x-1">
                             <button
                               onClick={() => handleDelete(activity.id)}
-                              className="w-10 h-10 flex items-center justify-center bg-red-100 rounded-xl hover:bg-red-200 transition-colors duration-200"
+                              className="w-10 h-10 flex items-center justify-center bg-red-200 rounded-xl hover:bg-red-300 transition-colors duration-200"
                             >
-                              <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <svg className="w-4 h-4 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                               </svg>
                             </button>
                             <button
                               onClick={() => setDeleteConfirm(null)}
-                              className="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors duration-200"
+                              className="w-10 h-10 flex items-center justify-center bg-gray-200 rounded-xl hover:bg-gray-300 transition-colors duration-200"
                             >
-                              <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <svg className="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                               </svg>
                             </button>
@@ -161,9 +161,9 @@ export default function AdminPage() {
                         ) : (
                           <button
                             onClick={() => setDeleteConfirm(activity.id)}
-                            className="w-10 h-10 flex items-center justify-center bg-red-50 rounded-xl hover:bg-red-100 transition-colors duration-200"
+                            className="w-10 h-10 flex items-center justify-center bg-red-100 rounded-xl hover:bg-red-200 transition-colors duration-200"
                           >
-                            <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                             </svg>
                           </button>

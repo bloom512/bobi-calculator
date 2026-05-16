@@ -62,7 +62,7 @@ export function ActivityForm({ activity, onSubmit, onCancel }: ActivityFormProps
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">活动名称</label>
+        <label className="block text-sm font-semibold text-gray-700 mb-2">活动名称</label>
         <input
           type="text"
           value={name}
@@ -76,7 +76,7 @@ export function ActivityForm({ activity, onSubmit, onCancel }: ActivityFormProps
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">C计算公式</label>
+        <label className="block text-sm font-semibold text-gray-700 mb-2">C计算公式</label>
         <input
           type="text"
           value={formulaC}
@@ -91,7 +91,7 @@ export function ActivityForm({ activity, onSubmit, onCancel }: ActivityFormProps
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">D计算公式</label>
+        <label className="block text-sm font-semibold text-gray-700 mb-2">D计算公式</label>
         <input
           type="text"
           value={formulaD}
