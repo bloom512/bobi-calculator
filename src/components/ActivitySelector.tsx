@@ -26,11 +26,11 @@ export function ActivitySelector({ activities, selectedActivity, onSelect }: Act
     <div className="w-full relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full h-14 px-6 bg-gray-50 rounded-2xl shadow-soft flex items-center justify-between text-gray-800 font-medium hover:shadow-hover active:scale-98 transition-all duration-200 border border-gray-200"
+        className="w-full h-14 px-6 bg-white rounded-2xl shadow-soft flex items-center justify-between text-gray-700 font-medium hover:shadow-hover active:scale-98 transition-all duration-200"
       >
         <span>{selectedActivity?.name || '选择活动'}</span>
         <svg
-          className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -42,7 +42,7 @@ export function ActivitySelector({ activities, selectedActivity, onSelect }: Act
       {isOpen && (
         <div className="absolute z-50 w-full mt-2 bg-white rounded-2xl shadow-hover overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
           {activities.length === 0 ? (
-            <div className="px-6 py-4 text-center text-gray-600">暂无活动</div>
+            <div className="px-6 py-4 text-center text-gray-500">暂无活动</div>
           ) : (
             activities.map((activity) => (
               <button
@@ -51,8 +51,8 @@ export function ActivitySelector({ activities, selectedActivity, onSelect }: Act
                   onSelect(activity)
                   setIsOpen(false)
                 }}
-                className={`w-full px-6 py-4 text-left hover:bg-gray-100 transition-colors duration-150 ${
-                  selectedActivity?.id === activity.id ? 'bg-gray-100 text-primary-700' : 'text-gray-800'
+                className={`w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors duration-150 ${
+                  selectedActivity?.id === activity.id ? 'bg-gray-50 text-primary-600' : 'text-gray-700'
                 }`}
               >
                 {activity.name}

@@ -44,13 +44,13 @@ export default function CalculatorPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-100 pb-safe">
-      <div className="max-w-md mx-auto px-4 py-6">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 pb-safe">
+      <div className="max-w-lg mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold text-gray-800">波比计算器</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">波比计算器</h1>
           <Link href="/admin">
-            <button className="w-10 h-10 flex items-center justify-center bg-gray-200 rounded-xl hover:bg-gray-300 transition-colors duration-200">
-              <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button className="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors duration-200">
+              <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
@@ -58,7 +58,7 @@ export default function CalculatorPage() {
           </Link>
         </div>
 
-        <div className="bg-white rounded-3xl shadow-soft p-6 space-y-6 border border-gray-200">
+        <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-soft p-6 space-y-6">
           <div className="relative">
             <ActivitySelector
               activities={activities}
@@ -67,14 +67,14 @@ export default function CalculatorPage() {
             />
           </div>
 
-          <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-3">
+          <div className="space-y-4 sm:space-y-6">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div className="flex flex-col items-center">
-                <span className="text-sm font-semibold text-gray-600 mb-2">子非鱼下单 (A)</span>
-                <div className="flex items-center bg-white rounded-xl shadow-sm overflow-hidden" style={{ width: '100%', maxWidth: '160px' }}>
+                <span className="text-sm font-semibold text-gray-600 mb-2">子非鱼下单 <span className="text-gray-400">(A)</span></span>
+                <div className="flex items-center gap-2 bg-white rounded-xl px-1" style={{ width: '100%', maxWidth: '180px' }}>
                   <button
                     onClick={() => handleValueChange('A', Math.max(0, values.A - 1))}
-                    className="w-10 h-12 flex items-center justify-center bg-gray-100 hover:bg-gray-200 active:bg-gray-300 active:scale-95 transition-all duration-100 text-xl font-bold text-gray-700 flex-shrink-0"
+                    className="w-9 h-9 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-100 text-xl font-bold text-green-600 flex-shrink-0 rounded-full"
                   >
                     −
                   </button>
@@ -82,13 +82,12 @@ export default function CalculatorPage() {
                     type="number"
                     inputMode="numeric"
                     value={values.A || ''}
-                    placeholder="请输入"
                     onChange={(e) => handleValueChange('A', Math.max(0, parseInt(e.target.value) || 0))}
-                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white border border-gray-200 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 rounded-lg transition-all placeholder:text-xl placeholder:font-normal placeholder:text-gray-400"
+                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white border border-gray-200 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 rounded-lg transition-all"
                   />
                   <button
                     onClick={() => handleValueChange('A', values.A + 1)}
-                    className="w-10 h-12 flex items-center justify-center bg-gray-100 hover:bg-gray-200 active:bg-gray-300 active:scale-95 transition-all duration-150 text-xl font-bold text-gray-700 flex-shrink-0"
+                    className="w-9 h-9 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-150 text-xl font-bold text-primary-600 flex-shrink-0 rounded-full"
                   >
                     +
                   </button>
@@ -96,11 +95,11 @@ export default function CalculatorPage() {
               </div>
 
               <div className="flex flex-col items-center">
-                <span className="text-sm font-semibold text-gray-600 mb-2">子非鱼比率 (a)</span>
-                <div className="flex items-center bg-white rounded-xl shadow-sm overflow-hidden" style={{ width: '100%', maxWidth: '160px' }}>
+                <span className="text-sm font-semibold text-gray-600 mb-2">子非鱼比率 <span className="text-gray-400">(a)</span></span>
+                <div className="flex items-center gap-2 bg-white rounded-xl px-1" style={{ width: '100%', maxWidth: '180px' }}>
                   <button
                     onClick={() => handleValueChange('a', Math.max(0, Math.round((values.a - 0.01) * 100) / 100))}
-                    className="w-10 h-12 flex items-center justify-center bg-gray-100 hover:bg-gray-200 active:bg-gray-300 active:scale-95 transition-all duration-150 text-xl font-bold text-gray-700 flex-shrink-0"
+                    className="w-9 h-9 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-150 text-xl font-bold text-green-600 flex-shrink-0 rounded-full"
                   >
                     −
                   </button>
@@ -109,16 +108,15 @@ export default function CalculatorPage() {
                     inputMode="decimal"
                     step="0.01"
                     value={values.a || ''}
-                    placeholder="请输入"
                     onChange={(e) => {
                       const val = parseFloat(e.target.value) || 0
                       handleValueChange('a', Math.max(0, Math.round(val * 100) / 100))
                     }}
-                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white border border-gray-200 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 rounded-lg transition-all placeholder:text-xl placeholder:font-normal placeholder:text-gray-400"
+                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white border border-gray-200 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 rounded-lg transition-all"
                   />
                   <button
                     onClick={() => handleValueChange('a', Math.round((values.a + 0.01) * 100) / 100)}
-                    className="w-10 h-12 flex items-center justify-center bg-gray-100 hover:bg-gray-200 active:bg-gray-300 active:scale-95 transition-all duration-100 text-xl font-bold text-gray-700 flex-shrink-0"
+                    className="w-9 h-9 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-100 text-xl font-bold text-primary-600 flex-shrink-0 rounded-full"
                   >
                     +
                   </button>
@@ -128,11 +126,11 @@ export default function CalculatorPage() {
 
             <div className="grid grid-cols-2 gap-3">
               <div className="flex flex-col items-center">
-                <span className="text-sm font-semibold text-gray-600 mb-2">OP下单 (B)</span>
-                <div className="flex items-center bg-white rounded-xl shadow-sm overflow-hidden" style={{ width: '100%', maxWidth: '160px' }}>
+                <span className="text-sm font-semibold text-gray-600 mb-2">OP下单 <span className="text-gray-400">(B)</span></span>
+                <div className="flex items-center gap-2 bg-white rounded-xl px-1" style={{ width: '100%', maxWidth: '180px' }}>
                   <button
                     onClick={() => handleValueChange('B', Math.max(0, values.B - 1))}
-                    className="w-10 h-12 flex items-center justify-center bg-gray-100 hover:bg-gray-200 active:bg-gray-300 active:scale-95 transition-all duration-100 text-xl font-bold text-gray-700 flex-shrink-0"
+                    className="w-9 h-9 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-100 text-xl font-bold text-green-600 flex-shrink-0 rounded-full"
                   >
                     −
                   </button>
@@ -140,13 +138,12 @@ export default function CalculatorPage() {
                     type="number"
                     inputMode="numeric"
                     value={values.B || ''}
-                    placeholder="请输入"
                     onChange={(e) => handleValueChange('B', Math.max(0, parseInt(e.target.value) || 0))}
-                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white border border-gray-200 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 rounded-lg transition-all placeholder:text-xl placeholder:font-normal placeholder:text-gray-400"
+                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white border border-gray-200 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 rounded-lg transition-all"
                   />
                   <button
                     onClick={() => handleValueChange('B', values.B + 1)}
-                    className="w-10 h-12 flex items-center justify-center bg-gray-100 hover:bg-gray-200 active:bg-gray-300 active:scale-95 transition-all duration-100 text-xl font-bold text-gray-700 flex-shrink-0"
+                    className="w-9 h-9 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-100 text-xl font-bold text-primary-600 flex-shrink-0 rounded-full"
                   >
                     +
                   </button>
@@ -154,11 +151,11 @@ export default function CalculatorPage() {
               </div>
 
               <div className="flex flex-col items-center">
-                <span className="text-sm font-semibold text-gray-600 mb-2">OP比率 (b)</span>
-                <div className="flex items-center bg-white rounded-xl shadow-sm overflow-hidden" style={{ width: '100%', maxWidth: '160px' }}>
+                <span className="text-sm font-semibold text-gray-600 mb-2">OP比率 <span className="text-gray-400">(b)</span></span>
+                <div className="flex items-center gap-2 bg-white rounded-xl px-1" style={{ width: '100%', maxWidth: '180px' }}>
                   <button
                     onClick={() => handleValueChange('b', Math.max(0, Math.round((values.b - 0.01) * 100) / 100))}
-                    className="w-10 h-12 flex items-center justify-center bg-gray-100 hover:bg-gray-200 active:bg-gray-300 active:scale-95 transition-all duration-100 text-xl font-bold text-gray-700 flex-shrink-0"
+                    className="w-9 h-9 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-100 text-xl font-bold text-green-600 flex-shrink-0 rounded-full"
                   >
                     −
                   </button>
@@ -167,16 +164,15 @@ export default function CalculatorPage() {
                     inputMode="decimal"
                     step="0.01"
                     value={values.b || ''}
-                    placeholder="请输入"
                     onChange={(e) => {
                       const val = parseFloat(e.target.value) || 0
                       handleValueChange('b', Math.max(0, Math.round(val * 100) / 100))
                     }}
-                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white border border-gray-200 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 rounded-lg transition-all placeholder:text-xl placeholder:font-normal placeholder:text-gray-400"
+                    className="w-20 h-12 text-center text-xl font-bold text-gray-800 bg-white border border-gray-200 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 rounded-lg transition-all"
                   />
                   <button
                     onClick={() => handleValueChange('b', Math.round((values.b + 0.01) * 100) / 100)}
-                    className="w-10 h-12 flex items-center justify-center bg-gray-100 hover:bg-gray-200 active:bg-gray-300 active:scale-95 transition-all duration-100 text-xl font-bold text-gray-700 flex-shrink-0"
+                    className="w-9 h-9 flex items-center justify-center bg-gray-50 hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-100 text-xl font-bold text-primary-600 flex-shrink-0 rounded-full"
                   >
                     +
                   </button>
