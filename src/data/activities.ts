@@ -28,11 +28,16 @@ const fallbackActivities: Activity[] = [
 
 export async function getActivities(): Promise<Activity[]> {
   try {
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 5000) // 5秒超时
+    
     const { data, error } = await supabase
       .from('activities')
       .select('*')
       .order('created_at', { ascending: false })
-      .timeout(5000) // 5秒超时
+      .abortController(controller)
+    
+    clearTimeout(timeoutId)
     
     if (error) {
       console.warn('Supabase connection failed, using fallback data:', error)
