@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 interface ResultDisplayProps {
   cResult: number | null
@@ -8,6 +8,8 @@ interface ResultDisplayProps {
 
 function AnimatedNumber({ value, className }: { value: number | null; className: string }) {
   const [displayValue, setDisplayValue] = useState(value)
+  const [scale, setScale] = useState(1)
+  const prevValue = useRef(value)
 
   useEffect(() => {
     if (value === null) {
@@ -15,28 +17,16 @@ function AnimatedNumber({ value, className }: { value: number | null; className:
       return
     }
 
-    const startValue = displayValue ?? value
-    const endValue = value
-    const duration = 150
-    const startTime = performance.now()
-
-    const animate = (currentTime: number) => {
-      const elapsed = currentTime - startTime
-      const progress = Math.min(elapsed / duration, 1)
+    if (prevValue.current !== value) {
+      prevValue.current = value
       
-      // 使用缓动函数使动画更丝滑
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4)
+      setDisplayValue(value)
       
-      const currentValue = startValue + (endValue - startValue) * easeOutQuart
-      setDisplayValue(currentValue)
-
-      if (progress < 1) {
-        requestAnimationFrame(animate)
-      }
+      // 弹性缩放动画
+      setScale(1.15)
+      setTimeout(() => setScale(1), 80)
     }
-
-    requestAnimationFrame(animate)
-  }, [value, displayValue])
+  }, [value])
 
   const formatNumber = (num: number | null): string => {
     if (num === null) return '--'
@@ -44,7 +34,14 @@ function AnimatedNumber({ value, className }: { value: number | null; className:
   }
 
   return (
-    <span className={className}>
+    <span 
+      className={className}
+      style={{ 
+        display: 'inline-block',
+        transform: `scale(${scale})`,
+        transition: 'transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)'
+      }}
+    >
       {formatNumber(displayValue)}
     </span>
   )

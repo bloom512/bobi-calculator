@@ -17,7 +17,10 @@ export default function CalculatorPage() {
       const data = await getActivities()
       setActivities(data)
       if (data.length > 0) {
-        setSelectedActivity(data[0])
+        // 优先读取上次选择的活动
+        const savedActivityId = localStorage.getItem('selectedActivityId')
+        const savedActivity = data.find(activity => activity.id === savedActivityId)
+        setSelectedActivity(savedActivity || data[0])
       }
     }
     fetchActivities()
@@ -41,6 +44,8 @@ export default function CalculatorPage() {
   const handleActivityChange = (activity: Activity) => {
     setSelectedActivity(activity)
     setValues({ A: 0, a: 0, B: 0, b: 0 })
+    // 保存选择到本地存储
+    localStorage.setItem('selectedActivityId', activity.id)
   }
 
   return (
